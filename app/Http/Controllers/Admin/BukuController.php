@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -9,10 +10,11 @@ class BukuController extends Controller
 {
     public function index()
     {
-    $bukus = Buku::all(); // atau query data lain yang diperlukan admin
-    $peminjamans = Peminjaman::all();
+        // Mengambil seluruh data buku untuk ditampilkan di menu kelola buku
+        $bukus = Buku::all(); 
 
-    return view('admin.dashboard', compact('bukus', 'peminjamans'));
+        // Mengarahkan ke view khusus manajemen buku
+        return view('admin.buku.index', compact('bukus'));
     }
 
     public function create()
